@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.con/css?family=Poppins:200,300,400, 500, 600, 700, 800, 900& display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins' ;
+    box-sizing: border-box;
+}
+
+html,body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #35404c;
+}
+
+/* Analog Clock */
+
+.container{
+    position: relative;
+    background-color: #35404c;
+    border-radius: 5%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    box-shadow: 25px 25px 80px rgba(0, 0, 0, 0.119),
+    10px 60px 60px rgba(0, 0, 0, 0.348),
+    inset 4px 4px 10px rgba(0, 0, 0, 0.5),
+    inset 4px 4px 20px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 15px rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.clock{
+    position: relative;
+    height: 35vw;
+    width: 35vw;
+    background-color: #35404c;
+    border-radius: 50%;
+    box-shadow: 10px 60px 60px rgba(0, 0, 0, 0.284),
+    inset 4px 4px 10px rgba(0, 0, 0, 0.5),
+    inset 4px 4px 20px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 15px rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10%;
+}
+
+.clock::before{
+    content: "";
+    position: absolute;
+    width: 0.5vw;
+    height: 0.5vw;
+    background-color: #35404c;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    z-index: 20;
+}
+
+.clock span{
+    position: absolute;
+    inset: 1vw;
+    color: #fff;
+    text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+}
+
+.clock span b{
+    font-size: 1.65vw;
+    opacity: 0.40;
+    font-weight: 700;
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+}
+
+.circle{
+    position: absolute;
+    height: 25vw;
+    width: 25vw;
+    border: 2px solid rgba(0, 0, 0, 0.248);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10;
+}
+
+.circle i{
+    position: absolute;
+    height: 50%;
+    background-color: var(--clr);
+    opacity: 0.8;
+    transform-origin: bottom;
+    transform: scaleY(0.57);
+}
+
+.circle:nth-child(1) i{
+    width: .1vw;
+}
+
+.circle:nth-child(2) i{
+    width: .2vw;
+}
+
+.circle:nth-child(3) i{
+    width: .4vw;
+}
+
+.circle2{
+    height: 20vw;
+    width: 20vw;
+    z-index: 9;
+}
+
+.circle3{
+    height: 15vw;
+    width: 15vw;
+    z-index: 8;
+}
+
+.circle::before{
+    content: "";
+    position: absolute;
+    top: -0.55vw;
+    border-radius: 50%;
+    width: 1vw;
+    height: 1vw;
+    background: var(--clr);
+    box-shadow: 0 0 25px var(--clr),
+    0 0 70px var(--clr);
+}
+
+/* Digital Clock */
+
+#time{
+    margin-bottom: 10%;
+    display: flex;
+    font-size: 2vw;
+    padding: 5% 6%;
+    font-weight: 600;
+    border: 2px solid rgba(0, 0, 0, 0.248);
+    border-radius: 5rem;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.426),
+    inset -5px -5px 15px rgba(0, 0, 0, .8);
+}
+
+#time div{
+    position: relative;
+    width: 4vw;
+    text-align: center;
+    font-weight: 600;
+    color: var(--clr);
+}
+
+#time div:nth-child(1)::after,
+#time div:nth-child(2)::after{
+    content: ":";
+    position: absolute;
+    right: -.4px;
+    top: -.2px;
+}
+
+#time div:last-child{
+    font-size: 1.2vw;
+    display: flex;
+    align-items: center;
+}
+
+#time div:nth-child(2)::after{
+    animation: anime 1s steps(1) infinite ;
+}
+@keyframes anime{
+    0%{
+        opacity: 1;
+    }
+    80%{
+        opacity: 0;
+    }
+}
+
+@media (min-width: 100px) and (max-width: 1000px) {
+    .clock{
+        height: 55vw;
+        width: 55vw;
+    }
+    .circle{
+        height: 35vw;
+        width: 35vw;
+    }
+    .circle2{
+        height: 25vw;
+        width: 25vw;
+    }
+    
+    .circle3{
+        height: 15vw;
+        width: 15vw;
+    }
+}
